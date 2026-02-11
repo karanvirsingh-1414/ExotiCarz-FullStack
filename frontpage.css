@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.top {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+}
+
+nav {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2; 
+}
+
+nav .logo {
+    width: 190px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin-left: 60px;
+    border-radius: 25px;
+    border: 4px solid white;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 2px;
+    transition: 0.4s;
+}
+
+.login {
+    background-color: transparent;
+    color: white;
+    border: 4px solid white;
+}
+
+.login:hover {
+    border: 4px solid #f94c4c;
+}
+
+.signup {
+    background-color: transparent;
+    color: white;
+}
+
+.signup:hover {
+    border: 4px solid blue;
+}
+
+nav ul li a {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 55px 50px;
+    border-radius: 25px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); 
+    backdrop-filter: blur (10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+
+    z-index: 2;
+    margin-top: 10%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.content h1 {
+    font-size: 60px;
+    color: white;
+}
+
+.content p {
+    padding: 0px 80px;
+    font-size: 30px;
+    color: white;
+    margin-top: 2%;
+}
+
+.content h1 span {
+    color:#f94c4c;
+}
+
+.content a {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    border: 5px solid white;
+    padding: 1px 50px;
+    /* border-radius: 35px; */
+    transition: 0.5s;
+}
+
+.content a:hover {
+    background-color: white;
+    color: black;
+    transition: 0.4s;
+    border: 5px solid black;
+    transform: scale(1.06);
+}
+
+.back-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-attachment: fixed;
+    z-index: 1; /* To keep the video in the background */
+}
+
+
+
+@media (max-width: 992px) {
+    .content {
+        padding: 40px 30px;
+        margin-top: 5%;
+    }
+
+    .content h1 {
+        font-size: 45px;
+    }
+
+    .content p {
+        padding: 0px 40px;
+        font-size: 24px;
+    }
+
+    .content a {
+        font-size: 32px;
+        padding: 5px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 30px 20px;
+    }
+
+    .content h1 {
+        font-size: 36px;
+    }
+
+    .content p {
+        padding: 0px 20px;
+        font-size: 20px;
+    }
+
+    .content a {
+        font-size: 28px;
+        padding: 4px 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .content {
+        padding: 20px 15px;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content p {
+        padding: 0px 15px;
+        font-size: 18px;
+    }
+
+    .content a {
+        font-size: 24px;
+        padding: 3px 20px;
+    }
+}
+
+.start {
+    height: 270px;
+    margin-bottom: -25%;
+}
+
+
+@media (max-width:992px) {
+    .start {
+        height: 150px;
+    }
+}
+
+@media (max-width:1089px) {
+    .start {
+        height: 200px;
+    }
+}
+
+
+.anchor {
+    background-color: transparent;
+    border: none !important;
+    transition: 0.5s;
+}
+
+.anchor:hover{
+    background-color: transparent !important;
+    
+}
+
+.anchor img:hover{
+    background-color: transparent !important;
+    transform: scale(1.05);
+    transition: 0.5s;
+}

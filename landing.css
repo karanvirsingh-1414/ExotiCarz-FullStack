@@ -1,0 +1,1294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+}
+
+body {
+    overflow-x: hidden;
+    background-color: rgb(0, 0, 0);
+}
+
+.heading2 {
+    font-size: 50px;
+}
+
+.heading4 {
+    font-size: 30px;
+    
+}
+
+.navbar {
+    background-color: rgb(0, 0, 0);
+    z-index: 9999; /* Ensure navbar stays on top */
+}
+
+.backimg .main_img {
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.backimg nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+#align li a {
+    transition: 0.6s;
+    color: white; /* Ensuring white text */
+}
+
+#align li a:hover {
+    transform: scale(1.1);
+    color: white;
+    transition: 0.6s;
+}
+
+#log_sign a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+#log_sign .login {
+    transition: 0.6s;
+    background-color: white;
+    color: #f94c4c;
+}
+
+#log_sign .login:hover {
+    transition: 0.6s;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+#log_sign .signup {
+    transition: 1s;
+    background-color: #f94c4c;
+    color: white;
+}
+
+#log_sign .signup:hover {
+    transition: 0.6s;
+    background-color: transparent;
+    border: 1px solid #f94c4c;
+    color: white;
+}
+
+/* SIDEBAR STYLING */
+.sidebar {
+    display: flex;
+    flex-direction: column; /* Aligns content vertically */
+    justify-content: space-between; /* Distributes the items to take full height */
+    height: 100vh; /* Full height of the viewport */
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background for better readability */
+    backdrop-filter: blur(10px);
+    z-index: 10000; /* Ensure it stays on top */
+    overflow-y: hidden; /* Disable scrolling */
+}
+
+/* Sidebar header (close button) */
+.offcanvas-header {
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Sidebar body content */
+.offcanvas-body {
+    flex-grow: 1; /* Make the body take the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the links */
+    align-items: center; /* Center horizontally */
+}
+
+/* Adjust links inside sidebar */
+#align {
+    width: 100%; /* Make the navigation take full width */
+    list-style: none;
+}
+
+#align li {
+    margin: 1rem 0; /* Space between each menu item */
+}
+
+#align li a {
+    font-size: 1.5rem; /* Increase font size */
+    color: white;
+    text-decoration: none;
+    transition: 0.6s;
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+#align li a:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+/* LOGIN / SIGNUP section */
+#log_sign {
+    display: flex;
+    flex-direction: column; /* Default to column for smaller screens */
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem; /* Add some space between the buttons */
+}
+
+#log_sign a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem; /* Increase padding to make buttons larger */
+    text-align: center;
+}
+
+#log_sign .login {
+    background-color: white;
+    color: #f94c4c;
+    transition: 0.6s;
+    border-radius: 5px;
+}
+
+#log_sign .login:hover {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+#log_sign .signup {
+    background-color: #f94c4c;
+    width: 140px;
+    color: white;
+    transition: 0.6s;
+    border-radius: 5px;
+}
+
+#log_sign .signup:hover {
+    background-color: transparent;
+    border: 1px solid #f94c4c;
+    color: white;
+}
+
+/* Adjust for larger screens */
+@media (min-width: 992px) { /* Target screens greater than 992px (desktop) */
+    #log_sign {
+        flex-direction: row; /* Change to row layout */
+        justify-content: center; /* Center content */
+        align-items: center; /* Center vertically */
+    }
+
+    #log_sign a {
+        padding: 0.5rem 2rem; /* Increase horizontal padding for larger buttons */
+        margin: 0 0.5rem; /* Space between buttons */
+    }
+
+    #align {
+        flex-grow: 1; /* Make the links section grow */
+        display: flex; /* Use flexbox for the menu */
+        justify-content: center; /* Center align the menu items */
+    }
+}
+
+/* RESPONSIVENESS FOR BACKGROUND IMAGE */
+@media (max-width:479px) {
+    .main_img {
+        width: 100%;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width:575px) {
+    .main_img {
+        width: 100%;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width:767px) {
+    .main_img {
+        width: 100%;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width:1199px) {
+    body {
+        background-size: cover;
+    }
+}
+
+.caption {
+    position: absolute;
+    top: 16%;
+    left: 20%;
+    color: white;
+}
+
+
+
+
+
+
+
+
+/* Responsiveness for FORM */
+form div {
+    padding: 0% 1%;
+}
+
+form button {
+    width:13rem;
+    height: 2.4rem;
+}
+
+form button {
+    width: 100%;
+    max-width: 13rem;
+    height: 2.4rem;
+}
+
+
+@media (max-width: 767px) {
+    form button {
+        max-width: 10rem; 
+        height: 2.2rem;
+    }
+}
+
+@media (max-width: 575px) {
+    form button {
+        max-width: 8rem; 
+        height: 2.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    form button {
+        max-width: 6rem; 
+        height: 2.2rem;
+    }
+}
+
+
+.sidebar {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    z-index: 1050;  /* so that when we scroll the side-bar remains on the top */
+}
+
+
+.booking-area {
+    background-color: rgba(255, 255, 255, 0.724);
+    margin-top: -4rem;
+    padding: 3.125rem 1.875rem;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.booking-area form {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.booking-area:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+
+.backimg .main_img {
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+    z-index: 0; /* Keep the image in the background */
+}
+
+.booking-area div {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.booking-area input{
+    border: 2px solid black;
+    color: black;
+}
+
+.booking-area select{
+    border: 2px solid black;
+    color: black;
+}
+
+.booking-area button{
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+
+.booking-area button:hover {
+    background-color:#f94c4c;
+    border: 2px solid black;
+    transition: 0.5s;
+    color: white;
+    transform: scale(1.1);
+}
+
+#align li a {
+    padding: 0px 12px;
+}
+
+
+
+
+/* ABOUT SECTION */
+
+.cont .main-btn {
+    font-size: 1.5rem;
+    padding: 1%;
+    border-radius: 20px;
+    border: 2px solid #f94c4c ;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    background-color: #f94c4c;
+    transition: 0.4s;
+    
+}
+
+
+.cont .main-btn:hover {
+    background-color: transparent;
+    color: #f94c4c;
+    transition: 0.4s;
+    transform: scale(1.1);
+}
+
+
+.head1 {
+    font-size: 2.5rem;
+}
+
+.p1 {
+    font-size: 1.2rem;
+}
+
+
+.about_section {
+    padding-top: 9.375rem;
+}
+
+.span1 {               /* Span for word "Exoticarz */
+    color: #f94c4c;
+}
+
+
+.welcome img {
+    border-radius: 5px;
+    transition:  0.5s ease, box-shadow 0.5s ease;
+    
+}
+
+.welcome img:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.87)
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+    .head1 {
+        font-size: 2.1rem;
+    }
+
+    .p1 {
+        font-size: 1rem;
+    }
+
+    .cont .main-btn {
+        font-size: 1.2rem;
+    }
+
+}
+
+/* ABOUT SECTION END */
+
+
+
+/* SERVICE SECTION */
+#services .container {
+    margin-top: 10%;
+}
+
+
+.service-menu-area ul .nav li a h5 {
+
+    color: black;
+    font-size: 500px;
+}
+
+.service-content {
+    color: black;
+}
+
+.service-icon img {
+    width: 3.5rem; 
+    height: auto; 
+    mix-blend-mode: color-burn;
+    object-fit: cover; 
+}
+
+
+
+.service-menu-area nav {
+    width: 100%;
+
+}
+
+
+.nav-link h5 {
+    width: 100%;
+    font-size: 1.8rem;
+  }
+  
+  .nav-link p {
+      width: 100%;
+      font-size: 1.2rem;
+    }
+  
+  .nav-item .nav-link h5 {
+      text-decoration: none;
+  }
+  
+  .nav-link p {
+      width: 100%;
+    }
+  
+  
+  /* .nav-item {
+      width: 100%;
+    } */
+
+
+
+    .service-menu-area ul li a {
+        display: block;
+        margin-bottom: 2.18rem;
+        
+    }
+    
+    .service-menu-area ul li a .service-icon {
+        height: 5.6rem;
+        width: 5.6rem;
+        background-color: antiquewhite;
+        line-height: 5.6rem;
+        text-align: center;
+        border-radius: 100%;
+        float: left;
+        transition: 0.4s ease-in-out;
+    
+    }
+    
+    
+    .service-menu-area ul li a .service-icon:hover,
+    .service-menu-area ul li a.active .service-icon {
+        background-color: rgb(249, 144, 6);
+        color: white;
+        box-shadow: 0.125rem rgb(35 30 31 / 40%);
+        
+    }
+    
+    
+    
+    
+    
+    .service-menu-area ul li a .service-icon:hover {
+        background-color:rgb(249, 144, 6);
+        border-radius: 100%;
+        border: 3px solid black;
+    }
+    
+    /* Remove the white background from the active link */
+    .nav-link.active {
+        background-color: transparent !important; 
+        border: none !important; 
+        box-shadow: none !important; 
+    }
+    
+    
+    
+    .service-menu-area  {
+        background-color: transparent;
+    } 
+    
+    
+    .service-menu-area ul li:nth-child(1) {
+        margin-left: -1rem;
+    }
+    
+    .service-menu-area ul li:nth-child(2) {
+        margin-left: -2.93rem;
+    }
+    
+    .service-menu-area ul li:nth-child(3) {
+        margin-left: -5.0rem;
+    }
+    
+    .service-menu-area ul li:nth-child(4) {
+        margin-left: -7.00rem;
+    }
+
+
+    .nav-tabs .nav-link {
+        border: none;
+    }
+    
+    
+    .service-menu-area ul li a p,
+    .service-menu-area ul li a h5{
+        padding-left: 6.87rem;
+        display: block;
+        text-align: left;
+    }
+    
+    .service-menu-area ul li a p span {
+        color:rgb(249, 144, 6);
+    }
+
+
+    .service-item-section .tab-content img {
+        width: 100%;
+    }
+    
+    .service-menu-area ul li a {
+        margin-bottom: 0.81rem;
+        overflow: hidden;
+    }
+    
+    .service-menu-area ul li:nth-child(1) {
+        margin-left: -4.43rem;
+    }
+    
+    .service-menu-area ul li:nth-child(2) {
+        margin-left: -6.93rem;
+    }
+    
+    .service-menu-area ul li:nth-child(3) {
+        margin-left: -9.37rem;
+    }
+    
+    .service-menu-area ul li:nth-child(4) {
+        margin-left: -11.90rem;
+    }
+    
+    .service-menu-area ul li a h5{
+        margin-bottom: 0.37rem;
+    }
+    
+    
+    
+    .service-menu-area {
+        padding: 1.5rem 0.5rem;
+    }
+
+
+    @media (max-width:991px) {
+        .service-menu-area ul li {
+            margin-left: unset !important;
+        }
+    }
+
+
+    @media (min-width: 993px) and (max-width: 1199px) {
+        .tab-pane img {
+            width: 90%;
+            height: 400px;
+        }
+    
+    
+        .nav-link h5 {
+            font-size: 1rem;
+        }
+    
+       
+        .nav-link p {
+            font-size: 0.9rem; 
+        }
+
+
+        .service-item-section {
+            margin-bottom: 1rem; 
+        
+        }
+    
+        .service-menu-area ul li a .service-icon:nth-child(1) {
+             margin-top: 0%;
+        }
+    }
+
+
+    .service-menu-area .nav {
+        border: none;
+    }
+
+/* SERVICE SECTION END */
+
+
+
+
+/* BACKGROUND IMAGE BLUR START */
+.back_section {
+    margin-top: 20%;
+}
+
+
+
+
+.back_section .container-fluid {
+    background: url("./images/mustang.jpeg") ;
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    object-fit: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+
+
+
+
+.back_content h2 b,
+.back_content h4,
+.back_content p {
+    color: white;
+    background-color: transparent;
+    transition: transform 0.5s ease;
+}
+
+.back_content p {
+    padding: 0px 120px;
+    font-size: 60px;
+    color:white;
+}
+
+
+.back_content h2 b {
+    font-size: 50px;
+    transition: 0.5s;
+    background-color: transparent;
+}
+
+.back_content h2:hover b {
+    color: rgb(255, 170, 0);
+    transition: 0.5s;
+}
+
+.back_content .heading4:hover {
+    color: rgb(255, 170, 0);
+    transition: 0.5s;
+}
+
+
+.back_content .para:hover {
+    color: rgb(255, 170, 0);
+    transition: 0.5s;
+}
+
+
+.back_content h2:hover b,
+.back_content h4:hover,
+.back_content p:hover {
+    transform: scale(1.05);
+}
+
+
+.back_content p {
+    font-size: 25px;
+    margin-top: 3%;
+    
+}
+
+.back_logo .exp-logo {
+    transition:  0.6s ease;
+    color: white;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+.back_logo .exp-logo:hover {
+    transition: 0.5s;
+    color: #f94c4c;
+    font-size: 25px;
+}
+
+.exp-logo {
+    background-color: transparent;
+}
+
+
+.back_content {
+    background-color: transparent;
+}
+
+.blur_head {
+    background-color: transparent;
+    transition: 0.5s;
+    
+}
+
+.blur_head:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.back_logo {
+    background-color: transparent;
+}
+
+.lg {
+    background-color: transparent;
+}
+
+.finger_logo {
+    background-color: transparent;
+}
+
+.social-network li {
+    border-radius: 100%;
+
+}
+
+.bg_blur_span {
+    color: #f94c4c;
+    background-color: transparent;
+}
+
+/* BACKGROUND IMAGE BLUR END */
+
+
+
+ /* TEAM SECTION START */
+ .team_section {
+    margin-top: 20%;
+}
+
+.card img {
+    width: 600px;
+    height: 500px;
+}
+
+
+.team_section .card {
+position: relative;
+overflow: hidden;
+}
+
+.team_section .team-info {
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    text-align: center;
+    padding: 1.25rem;
+    margin-bottom: -4.67rem;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.team_section .card:hover .team-info {
+    margin-bottom: 0%;
+}
+
+.team_section .team-info h5,
+.team_section .team-info p {
+color: white;
+}
+
+.team_section .team-info .social-network {
+    transition: all 0.3s ease-in-out;
+    padding: 1.25rem;
+    margin: 1.25rem -1.25rem -1.25rem;
+    background-color:rgb(255, 170, 0);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.team_section .team-info .social-network li a {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    display: block;
+    border-radius: 50%;
+    font-size: .9375rem;
+    color: white;
+    border: 0.0625rem solid white;
+}
+
+.team_card .card {
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team_card:hover .card {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.87);
+}
+
+/* TEAM SECTION END */
+
+
+
+
+
+/* PICKS IMAGES START */
+
+.picks_main {
+    margin-top: 3%;
+}
+
+
+.picks_section{
+    margin-top: 10%;
+}
+
+
+
+.car_info .about {
+    font-size:18px;
+}
+
+
+.car_info .main-btn {
+    text-decoration: none;
+    background-color:#f94c4c;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 6%;
+    border: 0%;
+}
+
+
+.card_picks .card:hover {
+    background-color: black;
+    color: rgb(249, 144, 6);
+    transition: 0.5s;
+    border: 0px;
+}
+
+
+.card_picks .card {
+    transition: 0.5s;
+    color: white;
+}
+
+
+
+/* PICKS IMAGES START */
+
+.card_picks .card {
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card_picks:hover .card {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.87);
+}
+
+.nav-item .nav-link {
+    background-color: transparent;
+}
+
+.service-menu-area .nav {
+    border: none;
+}
+
+
+
+
+
+.card_picks .card:hover a {
+    background-color:rgb(254, 175, 3);
+    color: black;
+}
+
+
+
+.back_section {
+    margin-top: 20%;
+}
+
+
+
+
+.back_section .container-fluid {
+    background: url("./images/mustang.jpeg") ;
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    object-fit: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.back_content h2 b,
+.back_content h4,
+.back_content p {
+    color: white;
+    background-color: transparent;
+    transition: transform 0.5s ease;
+}
+
+.back_content p {
+    padding: 0px 80px;
+    
+}
+
+
+.back_content h2 b {
+    font-size: 50px;
+    transition: 0.5s;
+    background-color: transparent;
+}
+
+.back_content h2:hover b {
+    color: rgb(255, 170, 0);
+    transition: 0.5s;
+}
+
+.back_content .heading4:hover {
+    color: rgb(255, 170, 0);
+    transition: 0.5s;
+}
+
+
+.back_content .para:hover {
+    color: rgb(255, 170, 0);
+    transition: 0.5s;
+}
+
+
+.back_content h2:hover b,
+.back_content h4:hover,
+.back_content p:hover {
+    transform: scale(1.05);
+}
+
+
+.back_content p {
+    font-size: 25px;
+    margin-top: 3%;
+    
+}
+
+.back_logo .exp-logo {
+    transition:  0.6s ease;
+    color: white;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+.back_logo .exp-logo:hover {
+    transition: 0.5s;
+    color:rgb(255, 170, 0);
+    font-size: 25px;
+}
+
+.exp-logo {
+    background-color: transparent;
+}
+
+
+.back_content {
+    background-color: transparent;
+}
+
+.blur_head {
+    background-color: transparent;
+    transition: 0.5s;
+    
+}
+
+.blur_head:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.back_logo {
+    background-color: transparent;
+}
+
+.lg {
+    background-color: transparent;
+}
+
+.finger_logo {
+    background-color: transparent;
+}
+
+.social-network li {
+    border-radius: 100%;
+
+}
+
+
+.btnn {
+    background-color: blue;
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    border: 0px ;
+}
+
+
+/* FOOTER START */
+
+
+footer {
+    margin-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+footer .row ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.back_anchor  {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.wrapper1 {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0px;
+}
+
+.wrap_card {
+    width: 4%;
+    height: 80vh;
+    border-radius: 50px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+    overflow: hidden;
+    color: white;
+    position: relative;
+}
+
+.wrap_card:nth-child(1) {
+    background-image: url('images/wrap2.jpg');
+}
+
+.wrap_card:nth-child(2) {
+    background-image: url('images/wrap1.jpg');
+}
+
+.wrap_card:nth-child(3) {
+    background-image: url('images/wrap3.jpg');
+}
+
+.wrap_card:nth-child(4) {
+    background-image: url('images/wrap4.jpg');
+}
+
+.wrap_card:nth-child(5) {
+    background-image: url('images/wrap5.jpg');
+}
+
+.wrap_card h3 {
+    font-size: 50px;
+    margin: 0;
+    font-weight: bold;
+    position: absolute;
+    bottom: 100px;
+    left: 50%; /* Center on x-axis */
+    transform: translateX(-50%);
+    background-color: transparent;
+    opacity: 0;
+}
+
+.active h3 {
+    opacity: 1;
+    transition: 1.7s ease-in;
+}
+
+.wrap-btn {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    bottom: 40px;
+    left: 50%;
+    font-size: 20px;
+    transform: translateX(-50%); 
+    opacity: 0;
+    transition: 1s ease-in;
+    color: white;
+    border-radius: 25px;
+    border: 3px solid white;
+}
+
+.active .wrap-btn:hover {
+    border: 3px solid red;
+    transition: 0.2s ease-in;
+}
+
+.active .wrap-btn {
+    opacity: 1;
+    transition: 0.2s ease-in;
+}
+
+.active {
+    width: 80%;
+}
+
+
+.wrap_span {
+    color: #f94c4c;
+}
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    transition: filter 0.3s ease; /* Smooth transition for blur effect */
+  }
+  
+  .container bla-bla {
+    width: 100%;
+    height: 100vh;
+    background: #3c5077;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal_head, .modal_para {
+    background-color: transparent;
+    color: black;
+  }
+  
+  .modal_image {
+    width: 300px;
+  }
+  
+  .btnn {
+    padding: 10px 60px;
+    background: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 30px;
+  }
+  
+  .popup {
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Hidden initially */
+    text-align: center;
+    padding: 0 30px 30px;
+    transition: transform 0.4s ease, top 0.4s ease;
+    visibility: hidden;
+    z-index: 10; /* Ensure the popup stays on top */
+  }
+  
+  .open-popup {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1); /* Pop up to normal size */
+    top: 20%; /* Adjust this to center or near the top */
+  }
+  
+  .popup img {
+    width: 160px;
+    margin-top: -75px;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+  
+  .popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+  }
+  
+  .popup button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-primary {
+    background-color: blue;
+  }
+  
+  /* New CSS for the blur effect */
+  .blurred {
+    filter: blur(8px); /* Apply the blur filter to the whole page */
+  }
+  
+  /* Optional: Add a background overlay to dim the page when the popup is active */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 5; /* Behind the popup but on top of the rest of the page */
+    visibility: hidden;
+  }
+  
+  .overlay.active {
+    visibility: visible;
+  }

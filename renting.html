@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exoticarz</title>
+  <link rel="icon" href="images/logo-removebg.png" type="image/x-icon">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- BOOTSTRAP - LINK -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- font link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="renting.css">
+
+</head>
+
+<body>
+  <!-- navbar with bg image  -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <!-- Exoticarz Logo -->
+        <img src="./images/logo-removebg.png" width="20%" class="navbar-brand fs-4"></img>
+        <!-- Hamburger icon-->
+        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <i class="navbar-toggler-icon"></i>
+        </button>
+        <!-- Sidebar -->
+        <div class="sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <!-- sidebar header -->
+          <div class="offcanvas-header text-white border-bottom">
+            <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+
+          <!-- sidebar body-->
+          <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+            <ul id="align" class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+              <li class="nav-item mx-2">
+                <a class="nav-link" aria-current="page" href="/landing.html">Home</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/about.html">About</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link active" href="/renting.html">Rent</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/slider.html">Top Picks</a>
+              </li>
+              <!-- <li class="nav-item mx-2">
+                <a class="nav-link" href="/">Top Brands</a>
+              </li> -->
+            </ul>
+
+            <!-- login & signup  -->
+            <div id="log_sign" class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-2">
+              <a href="login.html" class="login text-decoration-none px-3 py-1 rounded-3">Login</a>
+              <a href="#signup" class="signup text-decoration-none px-3 py-1 rounded-3">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+      
+  <main class="caraousell">
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover">
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="images/back_2.jpg" class="d-block w-100" alt=""
+          style="object-fit:cover; filter:brightness(60%); object-position:50% 90%;">
+        <div class="carousel-caption">
+          <h1 class="fontzy">You need Thrill</h1>
+          <p>Thrill that exhilarates you</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/mclaren_slide.webp" class="d-block w-100" alt=""
+          style="object-fit:cover; filter:brightness(60%); object-position:50% 90%;">
+        <div class="carousel-caption">
+          <h1 class="fontzy">You need Speed</h1>
+          <p>Speed that Frightens you</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/back_por.webp" class="d-block w-100" alt=""
+          style="object-fit:cover; filter:brightness(60%); object-position:50% 90%;">
+        <div class="carousel-caption">
+          <h1 class="fontzy">You need Class</h1>
+          <p>Class that sets you APART</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/lambo login.jpg" class="d-block w-100" alt=""
+          style="object-fit:cover; filter:brightness(60%); object-position:50% 90%;">
+        <div class="carousel-caption">
+          <h1 class="fontzy">You need Endurance</h1>
+          <p>Endurance that always motivates you</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="images/background2.png" class="d-block w-100" alt=""
+          style="object-fit:cover; filter:brightness(100%); object-position:50% 90%;">
+        <div class="carousel-caption">
+          <h1 class="fontzy">You need Exoticarz</h1>
+          <p>Cars driven with perfection</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+  <!-- switch to toggle -->
+  <div class="togglerSwitch">
+    <label for="toggleGas">Burn The Fuels</label>
+    <label class="switch">
+      <input type="checkbox" id="toggleGas">
+      <span class="slider"></span>
+    </label>
+    <label for="toggleGas">GoGreen</label>
+  </div>
+  
+  <section class="Collections" id="luxury"><h1>Explore Our <span class="lux" id="luxu">Luxury</span> Collection</h1></section>
+  <main class="Cars" id="gas">
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/maybach_slide.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Mercedes Benz</h2>
+        <h4>GLS 550D</h4>
+        <p class="card-text">Luxury SUV that combines opulent design with powerful performance while offering unmatched comfort and advanced technology</p>
+        <div class="checkkar"><a href="/maybach_gls.html"><button class="button-50" role="button">Check Out</button> </a></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem"  data-aos="fade-left">
+      <img src="images/audi_r8_slide.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Audi Racing</h2>
+        <h4>RS-8</h4>
+        <p class="card-text">High-performance sports car that blends stunning design with razor-sharp handling and exhilarating power, making it a true driver's machine.</p>
+        <div class="checkkar"><a href="/audi_r8.html"><button class="button-50" role="button">Check Out</button></a></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/bmwCar.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>BMW </h2>
+        <h4>F30 X-drive</h4>
+        <p class="card-text">Dynamic luxury coupe that delivers thrilling performance with its powerful V8 engine, while offering refined comfort and advanced technology.</p>
+        <div class="checkkar"><a href="/bmw.html"><button class="button-50" role="button">Check Out</button></a></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/porsche911.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Porsche</h2>
+        <h4>911 GT3</h4>
+        <p class="card-text">A precision-engineered sports car designed for the track, offering exhilarating performance with its high-revving engine and race-inspired handling</p>
+        <div class="checkkar"><button class="button-50" role="button">Check Out</button></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/bentley.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Bentley</h2>
+        <h4>Flying-Spur 500</h4>
+        <p class="card-text">Luxurious grand tourer that combines exquisite craftsmanship with powerful performance, offering unparalleled comfort and sophistication</p>
+        <div class="checkkar"><button class="button-50" role="button">Check Out</button></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/maserati4k.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Maserati</h2>
+        <h4>Quattroporte Trofeo</h4>
+        <p class="card-text">A high-performance luxury sedan that merges Italian elegance with a ferocious V8 engine, delivering a thrilling and refined driving experience</p>
+        <div class="checkkar"><button class="button-50" role="button">Check Out</button></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/lexus2.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Lexus</h2>
+        <h4>LX-570 Grande</h4>
+        <p class="card-text">A rugged yet luxurious SUV, offering powerful off-road capability combined with premium comfort and advanced features.</p>
+        <div class="checkkar"><button class="button-50" role="button">Check Out</button></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/dodge_slide.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Dodge</h2>
+        <h4>Challenger SRT Hellcat </h4>
+        <p class="card-text">An iconic muscle car, known for its aggressive design and immense horsepower, delivering a raw and thrilling driving experience.</p>
+        <div class="checkkar"><a href="/dodge.html"><button class="button-50" role="button">Check Out</button></a></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/rr1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Rolls Royce</h2>
+        <h4>Cullinan Series-ll</h4>
+        <p class="card-text">The epitome of luxury in an SUV, combining unmatched opulence with commanding presence and effortless performance</p>
+        <div class="checkkar"><button class="button-50" role="button">Check Out</button></div>
+      </div>
+    </div>
+  </main>
+<div id="grnCars">
+  <section class="ev" id="ev">
+    <div class="container evcont">
+      <div class="elogo"><img class="eeimg" src="images/logo-removebg.png" alt="" height="100px" style="margin-left: -15% !important;"></div>
+      <div class="eelogo"><h1 style="color: #39FF14;">.ev</h1></div>
+    </div>
+  </section>
+
+  <main class="Cars" id="greenEV">
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left" >
+      <img src="images/modelX.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Tesla</h2>
+        <h4>Model-X</h4>
+        <p class="card-text">An all-electric SUV renowned for its futuristic design, impressive acceleration, and advanced autonomous driving features</p>
+        <div class="checkkar"><a href="/modelX.html"><button class="button-50" role="button">Check Out</button></button></a></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem"  data-aos="fade-left">
+      <img src="images/bmwi8.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>BMW</h2>
+        <h4>i8</h4>
+        <p class="card-text">The BMW i8 is a plug-in hybrid sports car with a futuristic design, combining exhilarating performance with eco-friendly technology.</p>
+        <div class="checkkar"><button class="button-50" role="button">Check Out</button></div>
+      </div>
+    </div>
+
+    <div class="card carCards" style="width: 20rem;"  data-aos="fade-left">
+      <img src="images/cyber.webp" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2>Tesla</h2>
+        <h4>Cybertruck</h4>
+        <p class="card-text">A futuristic, all-electric design with an ultra-durable exoskeleton, impressive towing capacity, and cutting-edge technology, making it both resilient and versatile.</p>
+        <div class="checkkar"><button class="button-50" role="button">Check Out</button></div>
+      </div>
+    </div>
+  </main>
+</div>
+  <br><br>
+
+  <!-- FOOTER START -->
+
+<div class="container-fluid  text-white" style="background-color: #000000;">
+  <footer class="py-5">
+    <div class="row">
+      <div class="footer_links col-6 col-md-2 mb-3">
+        <h5>Sitemap</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="/landing.html" class="nav-link p-0 ">Home</a></li>
+          <li class="nav-item mb-2"><a href="/about.html" class="nav-link p-0 ">About</a></li>
+          <li class="nav-item mb-2"><a href="/renting.html" class="nav-link p-0 ">Rent</a></li>
+          <li class="nav-item mb-2"><a href="/slider.html" class="nav-link p-0 ">Top Picks</a></li>
+          <li class="nav-item mb-2"><a href="/contact.html" class="nav-link p-0 ">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer_links col-6 col-md-2 mb-3">
+        <h5>Cars</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="/lambo.html" class="nav-link p-0 ">Lamborghini</a></li>
+          <li class="nav-item mb-2"><a href="/maybach_gls.html" class="nav-link p-0 ">Maybach</a></li>
+          <li class="nav-item mb-2"><a href="/mclaren.html" class="nav-link p-0 ">McLaren</a></li>
+          <li class="nav-item mb-2"><a href="/rolls_royce.html" class="nav-link p-0 ">Rolls Royce</a></li>
+          <li class="nav-item mb-2"><a href="/dodge.html" class="nav-link p-0 ">Dodge</a></li>
+        </ul>
+      </div>
+
+      <div class="footer_links col-6 col-md-2 mb-3">
+        <h5>Access</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="/login.html" class="nav-link p-0 ">Login</a></li>
+          <li class="nav-item mb-2"><a href="/login.html" class="nav-link p-0 ">Sign Up</a></li>
+          <li class="nav-item mb-2"><a href="/frontpage.html" class="nav-link p-0 ">Start</a></li>
+          <li class="nav-item mb-2"><a href="#luxury" class="nav-link p-0 ">Luxury Cars</a></li>
+          <li class="nav-item mb-2"><a href="#ev" class="nav-link p-0 ">Electric Cars</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          <h5>Subscribe to our newsletter</h5>
+          <p>Discover what's new and exciting from us.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-danger" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© 2024 Exoticarz, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<script src="renting.js"></script>
+
+
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Bootstrap - js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+    <script>
+      AOS.init();
+    </script>
+
+</body>
+
+</html>

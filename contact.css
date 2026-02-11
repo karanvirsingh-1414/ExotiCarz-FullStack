@@ -1,0 +1,299 @@
+*,
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+body {
+    margin: 0;
+    padding: 0
+}
+.lightgray {
+    background-color: #f2f2f2
+}
+.container {
+    width: 92%;
+    max-width: 1510px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+fieldset {
+    border: 0 none;
+    margin: 0;
+    padding: 0
+}
+
+fieldset.sec-row {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+
+fieldset.sec-row>div[class*="sec-md-col"],
+fieldset.sec-row>div[class*="sec-xs-col"] {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.inputgrp {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 5px;
+    position: relative;
+    overflow: hidden
+}
+.inputgrp .csinput,
+.inputgrp .select,
+.inputgrp input,
+.inputgrp select,
+.inputgrp textarea {
+    display: block;
+    color: #000;
+    font-family: "Barlow Condensed", arial;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 15.5px 25px;
+    margin: 5px 0 0;
+    width: 100%;
+    max-width: 100%
+}
+.inputgrp textarea {
+    min-height: 70px
+}
+@media(max-width:1600px) {
+
+    .inputgrp .select,
+    .inputgrp input,
+    .inputgrp select,
+    .inputgrp textarea {
+        font-size: 15px;
+        border-radius: 10px;
+        padding: 12px 20px
+    }
+}
+@media(max-width:1366px) {
+
+    .inputgrp .csinput,
+    .inputgrp .select,
+    .inputgrp input,
+    .inputgrp select,
+    .inputgrp textarea {
+        font-size: 14px;
+        border-radius: 7px;
+        padding: 14px 20px
+    }
+}
+.frmbtn {
+    cursor: pointer;
+    color: #fff;
+    font-family: "Barlow Condensed", arial;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: all .3s ease-in-out;
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 18px 35px;
+    margin: 10px 0;
+    display: inline-block;
+    vertical-align: top;
+    min-width: 200px
+}
+@media(max-width:1600px) {
+    .frmbtn {
+        font-size: 15px;
+        padding: 12px 28px;
+        min-width: 140px
+    }
+}
+.sec-row {
+    margin-left: -15px;
+    margin-right: -15px
+}
+
+.clearboth:after,
+.clearboth:before,
+.sec-row:after,
+.sec-row:before {
+    content: "";
+    display: table
+}
+
+.clearboth:after,
+.sec-row:after {
+    clear: both
+}
+
+.flexrow {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.flexrow:after,
+.flexrow:before {
+    display: none
+}
+
+.sec-col,
+[class*="sec-col"],
+[class*="sec-lg-col"],
+[class*="sec-md-col"],
+[class*="sec-xlg-col"],
+[class*="sec-xs-col"] {
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 1px
+}
+@media all and (min-width:901px) {
+    .sec-md-col-6 {
+        width: 6%
+    }
+}
+.sec-md-col-50 {
+    width: 50%
+}
+.sec-md-col-100 {
+    width: 100%
+}
+@media all and (min-width:1025px) {
+    .sec-xlg-col-20 {
+        width: 20%
+    }
+}
+.sec-xlg-col-50 {
+    width: 50%
+}
+
+@media all and (max-width:1600px) {
+    .hide-under-1600 {
+        display: none !important
+    }
+
+    .container {
+        width: 86%
+    }
+}
+
+@media all and (max-width:1366px) {
+    .hide-1366 {
+        display: none !important
+    }
+}
+body {
+    color: #000;
+    font-family: Barlow, arial;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.2;
+    position: relative;
+    overflow-x: hidden
+}
+@media(max-width:1600px) {
+    body {
+        font-size: 16px
+    }
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Barlow Condensed", arial;
+    margin: 15px 0
+}
+
+@media(max-width:1366px) {
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 10px 0
+    }
+}
+
+.h1,
+h1 {
+    font-size: 90px;
+    font-weight: 500;
+    line-height: 1
+}
+
+.h2,
+h2 {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 1.1
+}
+
+.h3,
+h3 {
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 2px
+}
+
+.h4,
+h4 {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.1
+}
+.h6,
+h6 {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.1
+}
+.h7 {
+    font-family: Barlow, arial;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.1
+}
+
+@media(max-width:1600px) {
+    .h7 {
+        font-size: 20px
+    }
+}
+
+@media(max-width:1360px) {
+    .h7 {
+        font-size: 19px
+    }
+}
+p {
+    margin: 15px 0
+}
