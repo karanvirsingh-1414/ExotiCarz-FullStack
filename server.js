@@ -24,6 +24,10 @@ const mysql = require('mysql2/promise');
 // INITIALIZATION: Check if DB exists, if not create it
 // -------------------------------------------------------------------------
 async function initializeDatabase() {
+    // Determine if SSL is needed (Aiven requires it, localhost usually doesn't)
+    const isLocal = process.env.DB_HOST === 'localhost' || process.env.DB_HOST === '127.0.0.1';
+    const sslConfig = isLocal ? undefined : { rejectUnauthorized: false };
+
     try {
         // Connect to MySQL server (no database selected)
         const connection = await mysql.createConnection({
@@ -31,7 +35,7 @@ async function initializeDatabase() {
             port: process.env.DB_PORT || 3306,
             user: process.env.DB_USER,
             password: process.env.DB_PASSWORD,
-            ssl: { rejectUnauthorized: false } // Required for Aiven
+            ssl: sslConfig
         });
 
         await connection.query(`CREATE DATABASE IF NOT EXISTS \`${process.env.DB_NAME}\`;`);
@@ -49,18 +53,22 @@ let sequelize;
 async function startApp() {
     await initializeDatabase();
 
+    // Re-determine SSL for Sequelize
+    const isLocal = process.env.DB_HOST === 'localhost' || process.env.DB_HOST === '127.0.0.1';
+    const dialectOptions = isLocal ? {} : {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    };
+
     // Now connect to the specific database
     sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
         host: process.env.DB_HOST,
         port: process.env.DB_PORT || 3306,
         dialect: 'mysql',
         logging: false,
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-            }
-        }
+        dialectOptions: dialectOptions
     });
 
     // Define Models and Sync
