@@ -24,25 +24,26 @@ const mysql = require('mysql2/promise');
 // INITIALIZATION: Check if DB exists, if not create it
 // -------------------------------------------------------------------------
 async function initializeDatabase() {
-    // Determine if SSL is needed (Aiven requires it, localhost usually doesn't)
     const isLocal = process.env.DB_HOST === 'localhost' || process.env.DB_HOST === '127.0.0.1';
-    const sslConfig = isLocal ? undefined : { rejectUnauthorized: false };
 
-    try {
-        // Connect to MySQL server (no database selected)
-        const connection = await mysql.createConnection({
-            host: process.env.DB_HOST,
-            port: process.env.DB_PORT || 3306,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            ssl: sslConfig
-        });
+    // Skip creating database if using SQLite (file is created automatically)
+    if (!isLocal) {
+        try {
+            // Connect to MySQL server (no database selected)
+            const connection = await mysql.createConnection({
+                host: process.env.DB_HOST,
+                port: process.env.DB_PORT || 3306,
+                user: process.env.DB_USER,
+                password: process.env.DB_PASSWORD,
+                ssl: { rejectUnauthorized: false }
+            });
 
-        await connection.query(`CREATE DATABASE IF NOT EXISTS \`${process.env.DB_NAME}\`;`);
-        console.log(`✅ Database '${process.env.DB_NAME}' checked/created successfully.`);
-        await connection.end();
-    } catch (error) {
-        console.error("❌ Error creating database:", error);
+            await connection.query(`CREATE DATABASE IF NOT EXISTS \`${process.env.DB_NAME}\`;`);
+            console.log(`✅ Database '${process.env.DB_NAME}' checked/created successfully.`);
+            await connection.end();
+        } catch (error) {
+            console.error("❌ Error creating database:", error);
+        }
     }
 }
 
@@ -53,23 +54,34 @@ let sequelize;
 async function startApp() {
     await initializeDatabase();
 
-    // Re-determine SSL for Sequelize
+    // Re-determine environment
     const isLocal = process.env.DB_HOST === 'localhost' || process.env.DB_HOST === '127.0.0.1';
-    const dialectOptions = isLocal ? {} : {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false
-        }
-    };
 
-    // Now connect to the specific database
-    sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT || 3306,
-        dialect: 'mysql',
-        logging: false,
-        dialectOptions: dialectOptions
-    });
+    if (isLocal) {
+        // Use SQLite for local development
+        console.log("🛠️ Using SQLite for local development...");
+        sequelize = new Sequelize({
+            dialect: 'sqlite',
+            storage: './database.sqlite',
+            logging: false
+        });
+    } else {
+        // Use MySQL for production/cloud
+        const dialectOptions = {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        };
+
+        sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+            host: process.env.DB_HOST,
+            port: process.env.DB_PORT || 3306,
+            dialect: 'mysql',
+            logging: false,
+            dialectOptions: dialectOptions
+        });
+    }
 
     // Define Models and Sync
     defineModels();
