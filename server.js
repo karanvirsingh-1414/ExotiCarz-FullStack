@@ -2,9 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Sequelize, DataTypes } = require('sequelize');
+require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -26,13 +27,13 @@ async function initializeDatabase() {
     try {
         // Connect to MySQL server (no database selected)
         const connection = await mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: 'root123'
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD
         });
 
-        await connection.query(`CREATE DATABASE IF NOT EXISTS exoticarz_db;`);
-        console.log("✅ Database 'exoticarz_db' checked/created successfully.");
+        await connection.query(`CREATE DATABASE IF NOT EXISTS \`${process.env.DB_NAME}\`;`);
+        console.log(`✅ Database '${process.env.DB_NAME}' checked/created successfully.`);
         await connection.end();
     } catch (error) {
         console.error("❌ Error creating database:", error);
@@ -47,8 +48,8 @@ async function startApp() {
     await initializeDatabase();
 
     // Now connect to the specific database
-    sequelize = new Sequelize('exoticarz_db', 'root', 'root123', {
-        host: 'localhost',
+    sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+        host: process.env.DB_HOST,
         dialect: 'mysql',
         logging: false
     });
@@ -61,7 +62,7 @@ async function startApp() {
 
     // Start Server
     app.listen(PORT, () => {
-        console.log(`🚀 Server running on http://localhost:${PORT}`);
+        console.log(`🚀 Server running on port ${PORT}`);
     });
 }
 
