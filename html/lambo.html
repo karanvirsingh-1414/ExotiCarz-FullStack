@@ -133,8 +133,7 @@
         }
 
         if (!isValidUser) {
-            alert("🔒 Access Restricted: Please Login to View Our Fleet.");
-            window.location.href = "login_2.html";
+            window.location.href = "login_2.html?auth=required";
         } else {
             document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.display = 'block';
