@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Outfit:wght@100..900&family=Great+Vibes&display=swap');
+
+:root {
+    --gold: #D4AF37;
+    --gold-hover: #b4942b;
+    --black: #050505;
+    --dark-grey: #121212;
+    --light-grey: #e0e0e0;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+}
+
+/* ===========================
+   BASE STYLES
+   =========================== */
+body {
+    background-color: var(--black);
+    color: var(--light-grey);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* ===========================
+   UTILITIES
+   =========================== */
+.font-orbitron {
+    font-family: var(--font-heading);
+}
+
+.font-outfit {
+    font-family: var(--font-body);
+}
+
+.text-gradient-gold {
+    background: linear-gradient(to right, #D4AF37, #F2D06B, #D4AF37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.bg-dark-grey {
+    background-color: var(--dark-grey) !important;
+}
+
+.bg-black-50 {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+.backdrop-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* ===========================
+   COMPONENTS
+   =========================== */
+/* Custom Buttons */
+.btn-custom-filled {
+    background: linear-gradient(135deg, var(--gold), #b38b26);
+    color: black;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-custom-filled:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    color: black;
+}
+
+.btn-custom-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 0.75rem 2rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-custom-outline:hover {
+    background: var(--gold);
+    color: black;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Custom Inputs */
+.custom-input {
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 10px;
+    padding: 0.8rem;
+}
+
+.custom-input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--gold);
+    color: white;
+    box-shadow: none;
+}
+
+/* ===========================
+   NAVBAR
+   =========================== */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    transition: padding 0.3s ease;
+}
+
+.nav-logo {
+    height: 50px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.sidebar {
+    background-color: rgba(5, 5, 5, 0.95);
+}
+
+.nav-link {
+    color: white !important;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--gold) !important;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+.hero-section {
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    margin-top: -85px;
+    /* Offset fixed navbar */
+    padding-top: 85px;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+}
+
+/* Fallback image if video fails or loads slow */
+.hero-section {
+    background: url('../images/background2.png') no-repeat center center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.tracking-widest {
+    letter-spacing: 0.2em;
+}
+
+/* ===========================
+   ABOUT SECTION
+   =========================== */
+.about-img-wrapper {
+    position: relative;
+    padding: 15px;
+}
+
+.about-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    border-top: 2px solid var(--gold);
+    border-left: 2px solid var(--gold);
+    border-radius: 20px 0 0 0;
+    z-index: 0;
+    transition: all 0.5s ease;
+}
+
+.about-img-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    border-bottom: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+    border-radius: 0 0 20px 0;
+    z-index: 0;
+    transition: all 0.5s ease;
+}
+
+.about-img-wrapper:hover::before,
+.about-img-wrapper:hover::after {
+    width: 100%;
+    height: 100%;
+    border-color: var(--gold-hover);
+}
+
+.about-img-main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+    border: 5px solid var(--black);
+}
+
+/* ===========================
+   SERVICES SECTION
+   =========================== */
+.service-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold) !important;
+}
+
+.service-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon-wrapper {
+    background: var(--gold);
+}
+
+.service-card:hover .service-icon-wrapper i {
+    color: black !important;
+}
+
+.icon-link-hover i {
+    transition: transform 0.3s ease;
+}
+
+.icon-link-hover:hover i {
+    transform: translateX(5px);
+}
+
+/* ===========================
+   WHY CHOOSE US
+   =========================== */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.why-choose-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+/* ===========================
+   BRANDS SECTION
+   =========================== */
+.brand-card {
+    height: 300px;
+    cursor: pointer;
+}
+
+.brand-card img {
+    transition: transform 0.6s ease;
+}
+
+.brand-card:hover img {
+    transform: scale(1.1);
+}
+
+.bg-gradient-to-t {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+/* ===========================
+   TOP PICKS SECTION
+   =========================== */
+.product-card {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===========================
+   SLIDER SECTION
+   =========================== */
+.slider-section {
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+}
+
+/* Adjust scrollbar for exclusive slider */
+#exclusiveSlider::-webkit-scrollbar {
+    height: 8px;
+}
+
+#exclusiveSlider::-webkit-scrollbar-track {
+    background: #000;
+}
+
+#exclusiveSlider::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+#exclusiveSlider::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+.wrap_card {
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.wrap_card:hover {
+    border-color: var(--gold);
+    transform: scale(0.98);
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+.social-icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-icon-circle:hover {
+    background: var(--gold);
+    color: black !important;
+    transform: rotate(360deg);
+}
+
+.hover-white:hover {
+    color: white !important;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 991px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-img-wrapper {
+        margin-bottom: 2rem;
+    }
+
+    .display-3 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 1.5rem;
+    }
+
+    .btn-custom-filled,
+    .btn-custom-outline {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .display-5 {
+        font-size: 2rem;
+    }
+}

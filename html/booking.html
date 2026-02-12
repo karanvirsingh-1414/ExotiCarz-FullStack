@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Dream Car - Exoticarz</title>
+    <link rel="icon" href="../images/logo-removebg.png">
+
+    <!-- BOOTSTRAP - LINK -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FONT AWESOME LINK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Reusing Landing CSS -->
+    <link rel="stylesheet" href="../css/landing.css">
+
+    <style>
+        .booking-hero {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/contact_back.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -85px;
+            padding-top: 85px;
+        }
+
+        .booking-card {
+            background: rgba(20, 20, 20, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-control,
+        .form-select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold);
+            color: white;
+            box-shadow: none;
+        }
+
+        .car-preview-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="landing.html">
+                <img src="../images/logo-removebg.png" alt="Exoticarz Logo" class="nav-logo">
+            </a>
+            <div class="d-flex align-items-center gap-3 ms-auto">
+                <a href="login_2.html" class="btn-custom-filled">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="booking-hero">
+        <div class="text-center">
+            <h1 class="display-4 fw-bold text-white font-orbitron">SECURE YOUR <span
+                    class="text-gradient-gold">DRIVE</span></h1>
+        </div>
+    </section>
+
+    <!-- BOOKING FORM SECTION -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <!-- Selected Car Details -->
+                <div class="col-lg-5">
+                    <div class="booking-card p-4 rounded-4" id="carDetails">
+                        <h3 class="text-warning font-orbitron mb-4">Selected Vehicle</h3>
+                        <img id="selectedCarImage" src="" alt="Selected Car" class="car-preview-img mb-4">
+                        <h2 id="selectedCarName" class="text-white font-orbitron mb-2">Loading...</h2>
+                        <p id="selectedCarModel" class="text-white-50 font-outfit mb-4">Loading specs...</p>
+
+                        <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3">
+                            <span class="text-white-50">Daily Rate</span>
+                            <span id="selectedCarPrice" class="text-warning fs-4 fw-bold font-orbitron">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="col-lg-7">
+                    <div class="booking-card p-5 rounded-4">
+                        <h3 class="text-white font-orbitron mb-4">Reservation Details</h3>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="text-white-50 mb-2 small">First Name</label>
+                                    <input type="text" class="form-control rounded-3" placeholder="John">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-white-50 mb-2 small">Last Name</label>
+                                    <input type="text" class="form-control rounded-3" placeholder="Doe">
+                                </div>
+                                <div class="col-12">
+                                    <label class="text-white-50 mb-2 small">Email Address</label>
+                                    <input type="email" class="form-control rounded-3" placeholder="john@example.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-white-50 mb-2 small">Pick-up Date</label>
+                                    <input type="date" class="form-control rounded-3">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-white-50 mb-2 small">Drop-off Date</label>
+                                    <input type="date" class="form-control rounded-3">
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit"
+                                        class="btn btn-warning w-100 py-3 fw-bold rounded-3 text-uppercase font-orbitron">Confirm
+                                        Reservation</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Getting URL Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const carId = urlParams.get('car');
+
+        // Car Data Database (Mock)
+        const carDatabase = {
+            'bmw-m8': {
+                name: 'BMW M8',
+                model: 'Competition Gran Coupe',
+                price: '$650 / day',
+                image: '../images/bmwCar.jpg'
+            },
+            'mercedes-amg': {
+                name: 'Mercedes AMG',
+                model: 'GT 63 S E Performance',
+                price: '$700 / day',
+                image: '../images/merc.jpeg'
+            },
+            'rolls-royce': {
+                name: 'Rolls Royce',
+                model: 'Ghost Black Badge',
+                price: '$1500 / day',
+                image: '../images/rolls_2.png'
+            },
+            'maserati-mc20': {
+                name: 'Maserati',
+                model: 'MC20 Cielo',
+                price: '$900 / day',
+                image: '../images/maserati4k.jpg'
+            },
+            'lexus-lc500': {
+                name: 'Lexus LC500',
+                model: 'Inspiration Series',
+                price: '$450 / day',
+                image: '../images/lexus.jpg'
+            },
+            'dodge-demon': {
+                name: 'Dodge Demon',
+                model: 'SRT 170',
+                price: '$600 / day',
+                image: '../images/dodge.jpeg'
+            },
+            'porsche-taycan': {
+                name: 'Porsche Taycan',
+                model: 'Turbo S',
+                price: '$550 / day',
+                image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop'
+            },
+            'tesla-plaid': {
+                name: 'Tesla Model S',
+                model: 'Plaid',
+                price: '$400 / day',
+                image: 'https://images.unsplash.com/photo-1617704548623-340376564e68?q=80&w=2070&auto=format&fit=crop'
+            }
+        };
+
+        // Populate Page
+        const selectedCar = carDatabase[carId];
+
+        if (selectedCar) {
+            document.getElementById('selectedCarName').textContent = selectedCar.name;
+            document.getElementById('selectedCarModel').textContent = selectedCar.model;
+            document.getElementById('selectedCarPrice').textContent = selectedCar.price;
+            document.getElementById('selectedCarImage').src = selectedCar.image;
+        } else {
+            // Default or Error State
+            document.getElementById('selectedCarName').textContent = "Vehicle Not Found";
+            document.getElementById('selectedCarModel').textContent = "Please return to the fleet page and select a valid vehicle.";
+        }
+    </script>
+</body>
+
+</html>

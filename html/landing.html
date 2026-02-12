@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exoticarz</title>
+    <link rel="icon" href="images/logo-removebg.png">
+
+    <!-- BOOTSTRAP - LINK -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+    <!-- FONT AWESOME LINK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- AOS CSS  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/landing.css">
+</head>
+
+<body>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../images/logo-removebg.png" alt="Exoticarz Logo" class="nav-logo">
+            </a>
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars-staggered text-warning fs-3"></i>
+            </button>
+
+            <div class="sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom border-secondary">
+                    <h5 class="offcanvas-title text-warning font-orbitron" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+                    <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3 font-outfit">
+                        <li class="nav-item mx-lg-3">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item mx-lg-3">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item mx-lg-3">
+                            <a class="nav-link" href="renting.html">Fleet</a>
+                        </li>
+                        <li class="nav-item mx-lg-3">
+                            <a class="nav-link" href="slider.html">Brands</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+                        <a href="login_2.html" class="btn-custom-filled">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section d-flex align-items-end justify-content-center text-center text-white position-relative"
+        style="padding-bottom: 50px;">
+        <div class="hero-overlay"></div>
+        <video autoplay muted loop id="heroVideo" class="hero-video">
+            <!-- Placeholder video, user can replace. Using a static image fallback in CSS if video fails -->
+            <source src="https://videos.pexels.com/video-files/5788955/5788955-uhd_2560_1440_30fps.mp4"
+                type="video/mp4">
+        </video>
+
+        <div class="container position-relative z-2" data-aos="fade-up" data-aos-duration="1200">
+            <h5 class="text-warning font-orbitron mb-3 tracking-widest">PREMIUM CAR RENTAL</h5>
+            <h1 class="display-3 fw-bold mb-4 font-orbitron">DRIVE THE <span
+                    class="text-gradient-gold">EXTRAORDINARY</span></h1>
+            <p class="lead mb-5 font-outfit text-white-50 w-75 mx-auto d-none d-md-block">Experience the thrill of the
+                world's most exclusive supercars. Unmatched performance, undeniable style.</p>
+
+
+        </div>
+    </section>
+
+    <!-- BOOKING FORM SECTION -->
+    <div class="container position-relative z-2" style="margin-top: -80px; margin-bottom: 80px;" data-aos="fade-up">
+        <div class="glass-card p-4 rounded-4">
+            <form class="row g-3 align-items-end justify-content-center">
+                <div class="col-md-3 text-start">
+                    <label class="form-label text-white-50 small">Pick-up Date</label>
+                    <input type="date" class="form-control custom-input">
+                </div>
+                <div class="col-md-3 text-start">
+                    <label class="form-label text-white-50 small">Return Date</label>
+                    <input type="date" class="form-control custom-input">
+                </div>
+                <div class="col-md-3 text-start">
+                    <label class="form-label text-white-50 small">Vehicle Type</label>
+                    <select class="form-select custom-input">
+                        <option selected>Select Car</option>
+                        <option value="supercar">Supercar</option>
+                        <option value="luxury">Luxury Sedan</option>
+                        <option value="suv">Premium SUV</option>
+                        <option value="sports">Sports Car</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit"
+                        class="btn-custom-filled w-100 h-100 d-flex align-items-center justify-content-center">
+                        Search <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- BACKGROUND IMAGE END -->
+
+
+
+    <!-- ABOUT SECTION START -->
+
+    <!-- ABOUT SECTION START -->
+    <section id="about" class="about-section position-relative overflow-hidden py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="position-relative">
+                        <div class="about-img-wrapper">
+                            <img src="../images/maserati4k.jpg" class="img-fluid rounded-4 shadow-lg about-img-main"
+                                alt="Luxury Car" style="object-fit: cover; height: 100%; min-height: 400px;">
+                        </div>
+                        <div
+                            class="experience-badge bg-warning text-black rounded-circle d-flex flex-column align-items-center justify-content-center shadow-lg">
+                            <span class="fw-bold fs-3 font-orbitron">10+</span>
+                            <span class="small text-uppercase fw-bold">Years</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left" data-aos-duration="1000">
+                    <h6 class="text-warning text-uppercase letter-spacing-2 mb-3 fw-bold">About Exoticarz</h6>
+                    <h2 class="display-5 fw-bold text-white font-orbitron mb-4">LUXURY MEETS <span
+                            class="text-gradient-gold">PERFORMANCE</span></h2>
+                    <p class="text-light-grey mb-4 font-outfit lead">We offer an exclusive collection of high-end
+                        vehicles designed to elevate your driving experience. Whether you're looking to cruise in style
+                        for a special occasion or make a statement on the road.</p>
+                    <p class="text-light-grey mb-5 font-outfit">With top-tier customer service and a seamless rental
+                        process, we ensure that your journey is as thrilling as the destination.</p>
+
+                    <a href="about.html" class="btn-custom-outline">Explore More <i
+                            class="fa-solid fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT SECTION END -->
+
+    <!-- ABOUT SECTION END -->
+
+
+
+
+
+    <!-- SERVICES SECTION -->
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services-section bg-dark-grey py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-warning text-uppercase letter-spacing-2 mb-2 fw-bold">Our Services</h6>
+                <h2 class="display-5 fw-bold text-white font-orbitron">PREMIUM <span
+                        class="text-gradient-gold">EXPERIENCE</span></h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="service-card p-4 rounded-4 h-100 bg-black border border-dark position-relative overflow-hidden group">
+                        <div class="service-icon-wrapper mb-4">
+                            <i class="fa-solid fa-car-tunnel text-warning fs-2"></i>
+                        </div>
+                        <h4 class="text-white font-orbitron mb-3">City Transfer</h4>
+                        <p class="text-white-50 font-outfit small">Seamless and stylish transportation within the city
+                            limits. Arrive in comfort and class.</p>
+                        <a href="#"
+                            class="icon-link icon-link-hover text-warning mt-3 text-decoration-none stretched-link">
+                            Learn more <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="service-card p-4 rounded-4 h-100 bg-black border border-dark position-relative overflow-hidden group">
+                        <div class="service-icon-wrapper mb-4">
+                            <i class="fa-solid fa-plane-departure text-warning fs-2"></i>
+                        </div>
+                        <h4 class="text-white font-orbitron mb-3">Airport Pickup</h4>
+                        <p class="text-white-50 font-outfit small">VIP airport meet and greet service. Start your
+                            journey the moment you land.</p>
+                        <a href="#"
+                            class="icon-link icon-link-hover text-warning mt-3 text-decoration-none stretched-link">
+                            Learn more <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="service-card p-4 rounded-4 h-100 bg-black border border-dark position-relative overflow-hidden group">
+                        <div class="service-icon-wrapper mb-4">
+                            <i class="fa-solid fa-ring text-warning fs-2"></i>
+                        </div>
+                        <h4 class="text-white font-orbitron mb-3">Wedding Ceremony</h4>
+                        <p class="text-white-50 font-outfit small">Make your special day unforgettable with our luxury
+                            fleet for the bride and groom.</p>
+                        <a href="#"
+                            class="icon-link icon-link-hover text-warning mt-3 text-decoration-none stretched-link">
+                            Learn more <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div
+                        class="service-card p-4 rounded-4 h-100 bg-black border border-dark position-relative overflow-hidden group">
+                        <div class="service-icon-wrapper mb-4">
+                            <i class="fa-solid fa-city text-warning fs-2"></i>
+                        </div>
+                        <h4 class="text-white font-orbitron mb-3">Whole City Tour</h4>
+                        <p class="text-white-50 font-outfit small">Explore the city's landmarks in ultimate luxury and
+                            style with clarity.</p>
+                        <a href="#"
+                            class="icon-link icon-link-hover text-warning mt-3 text-decoration-none stretched-link">
+                            Learn more <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SERVICES END -->
+
+
+
+
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose-us position-relative py-5">
+        <div class="parallax-bg"></div>
+        <div class="container position-relative z-2 py-5">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <h6 class="text-warning text-uppercase letter-spacing-2 mb-2 fw-bold">Why Choose Us</h6>
+                    <h2 class="display-5 fw-bold text-white font-orbitron mb-4">DRIVE WITH <span
+                            class="text-gradient-gold">CONFIDENCE</span></h2>
+                    <p class="text-white-50 font-outfit lead">We don't just rent cars; we deliver an experience.
+                        Meticulously maintained fleet, transparency, and 24/7 premium support.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 text-center">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-4 border border-dark bg-black-50 rounded-4 h-100 backdrop-blur">
+                        <i class="fa-solid fa-medal text-warning display-4 mb-3"></i>
+                        <h3 class="text-white font-orbitron">Premium Quality</h3>
+                        <p class="text-white-50">Every vehicle is inspected to ensure peak performance and pristine
+                            condition.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-4 border border-dark bg-black-50 rounded-4 h-100 backdrop-blur">
+                        <i class="fa-solid fa-tags text-warning display-4 mb-3"></i>
+                        <h3 class="text-white font-orbitron">Best Rates</h3>
+                        <p class="text-white-50">Competitive pricing on top-tier vehicle models without hidden fees.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-4 border border-dark bg-black-50 rounded-4 h-100 backdrop-blur">
+                        <i class="fa-solid fa-headset text-warning display-4 mb-3"></i>
+                        <h3 class="text-white font-orbitron">24/7 Support</h3>
+                        <p class="text-white-50">Our concierge team is available around the clock to assist you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND SHOWCASE (Formerly TEAM) -->
+    <section id="brands" class="brands-section bg-black py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-warning text-uppercase letter-spacing-2 mb-2 fw-bold">Our Fleet</h6>
+                <h2 class="display-5 fw-bold text-white font-orbitron">LEGENDARY <span
+                        class="text-gradient-gold">MARQUES</span></h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Brand 1 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="brand-card position-relative overflow-hidden rounded-4">
+                        <img src="../images/lambo.jpeg" class="img-fluid w-100 h-100 object-fit-cover"
+                            alt="Lamborghini">
+                        <div class="brand-overlay position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t">
+                            <h4 class="text-white font-orbitron mb-1">Lamborghini</h4>
+                            <a href="lambo.html" class="text-warning text-decoration-none small stretched-link">View
+                                Models <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand 2 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="brand-card position-relative overflow-hidden rounded-4">
+                        <img src="../images/merc.jpeg" class="img-fluid w-100 h-100 object-fit-cover" alt="Mercedes">
+                        <div class="brand-overlay position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t">
+                            <h4 class="text-white font-orbitron mb-1">Mercedes</h4>
+                            <a href="maybach_gls.html"
+                                class="text-warning text-decoration-none small stretched-link">View Models <i
+                                    class="fa-solid fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand 3 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="brand-card position-relative overflow-hidden rounded-4">
+                        <img src="../images/audi.jpeg" class="img-fluid w-100 h-100 object-fit-cover" alt="Audi">
+                        <div class="brand-overlay position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t">
+                            <h4 class="text-white font-orbitron mb-1">Audi</h4>
+                            <a href="audi_r8.html" class="text-warning text-decoration-none small stretched-link">View
+                                Models <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand 4 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="brand-card position-relative overflow-hidden rounded-4">
+                        <img src="../images/mclaren2.jpeg" class="img-fluid w-100 h-100 object-fit-cover" alt="McLaren">
+                        <div class="brand-overlay position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-to-t">
+                            <h4 class="text-white font-orbitron mb-1">McLaren</h4>
+                            <a href="mclaren.html" class="text-warning text-decoration-none small stretched-link">View
+                                Models <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- TOP PICKS SECTION -->
+    <section id="picks" class="picks_section py-5 bg-dark-grey">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-warning text-uppercase letter-spacing-2 mb-2 fw-bold">Handpicked For You</h6>
+                <h2 class="display-5 fw-bold text-white font-orbitron">TOP <span
+                        class="text-gradient-gold">SELECTIONS</span></h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Pick 1 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card bg-black border border-dark rounded-4 overflow-hidden h-100 product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1568074532099-1e0dc3206a74?q=80&w=3087&auto=format&fit=crop"
+                                class="card-img-top object-fit-cover" alt="Lexus" style="height: 200px;">
+                            <span
+                                class="badge bg-warning text-black position-absolute top-0 end-0 m-3 px-3 py-2 fw-bold font-orbitron">SEDAN</span>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h4 class="card-title text-white font-orbitron mb-1">Lexus</h4>
+                            <p class="text-white-50 small mb-4">Sophisticated luxury with unparalleled comfort.</p>
+                            <a href="renting.html" class="btn-custom-outline w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pick 2 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card bg-black border border-dark rounded-4 overflow-hidden h-100 product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1634636208509-63bcd2a1b13f?q=80&w=1817&auto=format&fit=crop"
+                                class="card-img-top object-fit-cover" alt="G-Wagon" style="height: 200px;">
+                            <span
+                                class="badge bg-warning text-black position-absolute top-0 end-0 m-3 px-3 py-2 fw-bold font-orbitron">SUV</span>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h4 class="card-title text-white font-orbitron mb-1">G-Wagon</h4>
+                            <p class="text-white-50 small mb-4">Commanding presence and off-road capability.</p>
+                            <a href="renting.html" class="btn-custom-outline w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pick 3 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card bg-black border border-dark rounded-4 overflow-hidden h-100 product-card">
+                        <div class="position-relative">
+                            <img src="../images/mercedes.jpeg" class="card-img-top object-fit-cover" alt="Mercedes"
+                                style="height: 200px;">
+                            <span
+                                class="badge bg-warning text-black position-absolute top-0 end-0 m-3 px-3 py-2 fw-bold font-orbitron">SEDAN</span>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h4 class="card-title text-white font-orbitron mb-1">Mercedes</h4>
+                            <p class="text-white-50 small mb-4">The epitome of engineering and elegance.</p>
+                            <a href="renting.html" class="btn-custom-outline w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pick 4 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card bg-black border border-dark rounded-4 overflow-hidden h-100 product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1696233016084-30c8345d85ff?q=80&w=3087&auto=format&fit=crop"
+                                class="card-img-top object-fit-cover" alt="Rolls Royce" style="height: 200px;">
+                            <span
+                                class="badge bg-warning text-black position-absolute top-0 end-0 m-3 px-3 py-2 fw-bold font-orbitron">SEDAN</span>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h4 class="card-title text-white font-orbitron mb-1">Rolls Royce</h4>
+                            <p class="text-white-50 small mb-4">Ultimate luxury for those who demand the best.</p>
+                            <a href="renting.html" class="btn-custom-outline w-100">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXCLUSIVE SLIDER SECTION -->
+    <section class="slider-section py-5 position-relative overflow-hidden">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-warning text-uppercase letter-spacing-2 mb-2 fw-bold">Exclusive Deals</h6>
+                <h2 class="display-5 fw-bold text-white font-orbitron mb-5">ONLY ON <span
+                        class="text-gradient-gold">EXOTICARZ</span></h2>
+            </div>
+
+            <div class="wrapper1 d-flex gap-3 overflow-x-auto pb-4 px-2" id="exclusiveSlider">
+                <!-- Cards will be styled via CSS to look like the expanding cards or a sleek slider -->
+                <div class="wrap_card active rounded-4 overflow-hidden position-relative flex-shrink-0"
+                    style="min-width: 280px;">
+                    <div class="overlay p-4 d-flex flex-column justify-content-end h-100 bg-gradient-to-t">
+                        <h3 class="text-white font-orbitron mb-2">BMW Frozen M4</h3>
+                        <button class="btn btn-sm btn-warning rounded-pill px-4 fw-bold">Check Out</button>
+                    </div>
+                    <img src="../images/bmwCar.jpg"
+                        class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="BMW">
+                </div>
+
+                <div class="wrap_card rounded-4 overflow-hidden position-relative flex-shrink-0"
+                    style="min-width: 280px;">
+                    <div class="overlay p-4 d-flex flex-column justify-content-end h-100 bg-gradient-to-t">
+                        <h3 class="text-white font-orbitron mb-2">Mercedes CLA</h3>
+                        <button class="btn btn-sm btn-warning rounded-pill px-4 fw-bold">Check Out</button>
+                    </div>
+                    <img src="../images/merc.jpeg"
+                        class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="Mercedes">
+                </div>
+
+                <div class="wrap_card rounded-4 overflow-hidden position-relative flex-shrink-0"
+                    style="min-width: 280px;">
+                    <div class="overlay p-4 d-flex flex-column justify-content-end h-100 bg-gradient-to-t">
+                        <h3 class="text-white font-orbitron mb-2">Lexus IS350</h3>
+                        <button class="btn btn-sm btn-warning rounded-pill px-4 fw-bold">Check Out</button>
+                    </div>
+                    <img src="../images/lexus.jpg"
+                        class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="Lexus">
+                </div>
+
+                <div class="wrap_card rounded-4 overflow-hidden position-relative flex-shrink-0"
+                    style="min-width: 280px;">
+                    <div class="overlay p-4 d-flex flex-column justify-content-end h-100 bg-gradient-to-t">
+                        <h3 class="text-white font-orbitron mb-2">G-Wagon</h3>
+                        <button class="btn btn-sm btn-warning rounded-pill px-4 fw-bold">Check Out</button>
+                    </div>
+                    <img src="../images/back_4.jpg"
+                        class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="G-Wagon">
+                </div>
+
+                <div class="wrap_card rounded-4 overflow-hidden position-relative flex-shrink-0"
+                    style="min-width: 280px;">
+                    <div class="overlay p-4 d-flex flex-column justify-content-end h-100 bg-gradient-to-t">
+                        <h3 class="text-white font-orbitron mb-2">Dodge Demon</h3>
+                        <button class="btn btn-sm btn-warning rounded-pill px-4 fw-bold">Check Out</button>
+                    </div>
+                    <img src="../images/dodge.jpeg"
+                        class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="Dodge">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- <div class="container bla-bla"> -->
+    <!-- <button type="submit" class="btn-hai" onclick="openPopup()">Submit></button> -->
+    <!-- <div class="popup" id="popup">
+<img class="modal_image" src="/CarRental_FEE/images/tick.png">
+<h2 class="modal_head">Thank You!</h2>
+<p class="modal_para">Your details has been successfully submitted. Thanks!</p> <button type="button" onclick="closePopup()">OK</button> </div> -->
+    <!-- </div> -->
+
+
+
+
+
+
+
+    <!-- FOOTER START -->
+    <footer class="bg-black py-5 border-top border-dark">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a href="#" class="navbar-brand text-white font-orbitron fs-3 mb-4 d-block">EXOTI<span
+                            class="text-gradient-gold">CARZ</span></a>
+                    <p class="text-white-50 font-outfit mb-4">Experience the thrill of the world's most exclusive
+                        supercars. Unmatched performance, undeniable style.</p>
+                    <div class="social-links d-flex gap-3">
+                        <a href="#" class="text-white social-icon-circle"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-white social-icon-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-white social-icon-circle"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="text-white social-icon-circle"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5 class="text-white font-orbitron mb-3">Company</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2 text-white-50 font-outfit">
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white">About Us</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white">Careers</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white">Blog</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white">Press</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-4 mb-md-0">
+                    <h5 class="text-white font-orbitron mb-3">Support</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2 text-white-50 font-outfit">
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white">Help Center</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none hover-white">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="text-white font-orbitron mb-3">Newsletter</h5>
+                    <p class="text-white-50 font-outfit mb-4">Subscribe to our newsletter for the latest updates and
+                        exclusive offers.</p>
+                    <form class="position-relative">
+                        <input type="email"
+                            class="form-control bg-dark text-white border-secondary rounded-pill py-3 pe-5"
+                            placeholder="Your Email Address">
+                        <button class="btn btn-warning rounded-pill position-absolute top-0 end-0 m-1 px-4 py-2 fw-bold"
+                            type="submit">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-top border-dark mt-5 pt-4 text-center text-white-50 font-outfit small">
+                <p class="mb-0">&copy; 2024 Exoticarz, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+
+
+    <!-- BOOTSTRAP - JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+
+    <!-- JS -->
+    <script src="../js/landing.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

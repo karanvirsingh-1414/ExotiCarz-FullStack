@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi R8 V10 - Exoticarz</title>
+    <link rel="icon" href="../images/logo-removebg.png">
+
+    <!-- BOOTSTRAP - LINK -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FONT AWESOME LINK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Reusing Landing CSS for Theme Consistency -->
+    <link rel="stylesheet" href="../css/landing.css">
+
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        .page-header {
+            padding: 120px 0 60px;
+            background: radial-gradient(circle at top center, rgba(212, 175, 55, 0.15), transparent 60%);
+        }
+
+        /* CAR ANIMATION */
+        .hero-car-img {
+            width: 100%;
+            max-width: 900px;
+            transform: translateX(100%);
+            opacity: 0;
+            animation: driveIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+        }
+
+        @keyframes driveIn {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* CAR DETAILS */
+        .spec-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .spec-box:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* FORM STYLING */
+        .premium-form-container {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 15px;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold);
+            color: white;
+            box-shadow: none;
+        }
+
+        /* MODAL */
+        .modal-content {
+            background: #111;
+            border: 1px solid var(--gold);
+            color: white;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+    <style>
+        body {
+            display: none;
+        }
+
+        /* ... */
+    </style>
+    <script>
+        // AUTH GUARD (Run immediately)
+        const userStr = localStorage.getItem('currentUser');
+        let isValidUser = false;
+        if (userStr && userStr !== 'null' && userStr !== 'undefined') {
+            try {
+                const user = JSON.parse(userStr);
+                if (user && user.email) isValidUser = true;
+            } catch (e) {
+                console.error("Auth Error", e);
+            }
+        }
+
+        if (!isValidUser) {
+            alert("🔒 Access Restricted: Please Login to View Our Fleet.");
+            window.location.href = "login_2.html";
+        } else {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.style.display = 'block';
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav" style="background: rgba(0,0,0,0.9);">
+        <div class="container">
+            <a class="navbar-brand" href="landing.html">
+                <img src="../images/logo-removebg.png" alt="Exoticarz Logo" class="nav-logo">
+            </a>
+
+            <div class="d-flex align-items-center gap-3 ms-auto">
+                <a href="slider.html" class="text-white-50 text-decoration-none hover-white"><i
+                        class="fa-solid fa-arrow-left me-2"></i>Back to Brands</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER SECTION -->
+    <section class="page-header text-center">
+        <div class="container">
+            <h5 class="text-warning font-orbitron mb-2 tracking-widest text-uppercase" data-aos="fade-down">Born on the
+                Track</h5>
+            <h1 class="display-1 fw-bold text-white font-orbitron mb-4" data-aos="fade-up">AUDI <span
+                    class="text-gradient-gold">R8 V10</span></h1>
+            <p class="lead text-white-50 w-75 mx-auto font-outfit" data-aos="fade-up" data-aos-delay="100">A masterpiece
+                of engineering. With its V10 engine, Quattro all-wheel drive, and breathtaking design, the R8 is the
+                ultimate daily supercar.</p>
+        </div>
+    </section>
+
+    <!-- CAR SHOWCASE & FORM GRID -->
+    <section class="pb-5 overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <!-- LEFT COLUMN: CAR IMAGE & SPECS -->
+                <div class="col-lg-7">
+                    <!-- ANIMATED CAR IMAGE -->
+                    <div class="position-relative mb-5">
+                        <img src="../images/audi_r8_bg.webp" alt="Audi R8" class="hero-car-img">
+                    </div>
+
+                    <!-- SPECS GRID -->
+                    <div class="row g-3" data-aos="fade-up" data-aos-delay="500">
+                        <div class="col-6 col-md-3">
+                            <div class="spec-box p-3 rounded-3 text-center h-100">
+                                <i class="fa-solid fa-gauge-high text-warning fs-4 mb-2"></i>
+                                <h5 class="font-orbitron mb-0">3.1s</h5>
+                                <small class="text-white-50">0-60 mph</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-box p-3 rounded-3 text-center h-100">
+                                <i class="fa-solid fa-horse text-warning fs-4 mb-2"></i>
+                                <h5 class="font-orbitron mb-0">620 HP</h5>
+                                <small class="text-white-50">Power</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-box p-3 rounded-3 text-center h-100">
+                                <i class="fa-solid fa-road text-warning fs-4 mb-2"></i>
+                                <h5 class="font-orbitron mb-0">205 mph</h5>
+                                <small class="text-white-50">Top Speed</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="spec-box p-3 rounded-3 text-center h-100">
+                                <i class="fa-solid fa-gas-pump text-warning fs-4 mb-2"></i>
+                                <h5 class="font-orbitron mb-0">5.2L V10</h5>
+                                <small class="text-white-50">Engine</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: BOOKING FORM -->
+                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="300">
+                    <div class="premium-form-container p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <h3 class="text-white font-orbitron">RESERVE NOW</h3>
+                            <div class="price-tag font-orbitron fw-bold mt-2">$1,200<span
+                                    class="fs-6 text-white-50 fw-normal">/day</span></div>
+                        </div>
+
+                        <form id="rentalForm">
+                            <div class="mb-3">
+                                <label class="text-white-50 small mb-1">Full Name</label>
+                                <input type="text" class="form-control rounded-3" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-white-50 small mb-1">Email Address</label>
+                                <input type="email" class="form-control rounded-3" placeholder="john@example.com"
+                                    required>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-6">
+                                    <label class="text-white-50 small mb-1">Start Date</label>
+                                    <input type="date" class="form-control rounded-3" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="text-white-50 small mb-1">Days</label>
+                                    <input type="number" id="rentalDays" class="form-control rounded-3" value="1"
+                                        min="1" required>
+                                </div>
+                            </div>
+
+                            <div
+                                class="d-flex justify-content-between align-items-center py-3 border-top border-secondary mt-3">
+                                <span class="text-white font-outfit">Total Estimate</span>
+                                <span class="text-warning fs-4 font-orbitron fw-bold" id="totalPrice">$1,200</span>
+                            </div>
+
+                            <button type="submit"
+                                class="btn btn-warning w-100 py-3 fw-bold rounded-3 text-uppercase font-orbitron mt-3 hover-scale">
+                                <i class="fa-solid fa-check me-2"></i> Confirm Booking
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESS MODAL -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <div class="modal-body">
+                    <i class="fa-solid fa-circle-check text-warning" style="font-size: 4rem;"></i>
+                    <h2 class="font-orbitron mt-4 text-white">Booking Confirmed!</h2>
+                    <p class="text-white-50 font-outfit">Thank you for choosing Exoticarz. Our team will contact you
+                        shortly to finalize your Audi experience.</p>
+                </div>
+                <div class="modal-footer justify-content-center border-0">
+                    <button type="button" class="btn btn-outline-light px-4 rounded-pill"
+                        data-bs-dismiss="modal">Close</button>
+                    <a href="dashboard.html" class="btn btn-warning px-4 rounded-pill fw-bold text-black">Go to
+                        Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        const pricePerDay = 1200;
+        const daysInput = document.getElementById('rentalDays');
+        const totalDisplay = document.getElementById('totalPrice');
+
+        daysInput.addEventListener('input', function () {
+            const days = parseInt(this.value) || 0;
+            const total = days * pricePerDay;
+            totalDisplay.textContent = '$' + total.toLocaleString();
+        });
+
+        document.getElementById('rentalForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Check if user is logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                alert("Please login to book a car.");
+                window.location.href = "login_2.html";
+                return;
+            }
+
+            const days = parseInt(document.getElementById('rentalDays').value) || 0;
+            const total = days * pricePerDay;
+            const dateInput = this.querySelector('input[type="date"]');
+            const startDate = dateInput ? dateInput.value : new Date().toISOString().split('T')[0];
+
+            if (!startDate) {
+                alert("Please select a start date.");
+                return;
+            }
+
+            const bookingData = {
+                email: currentUser.email,
+                carName: "Audi R8 V10",
+                carImage: "../images/audi_r8_bg.webp",
+                startDate: startDate,
+                duration: days,
+                totalPrice: total
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(bookingData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                    modal.show();
+                } else {
+                    alert("Booking Failed: " + result.message);
+                }
+            } catch (error) {
+                console.error("Booking Error:", error);
+                alert("Server error. Please try again.");
+            }
+        });
+    </script>
+</body>
+
+</html>

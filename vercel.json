@@ -3,10 +3,12 @@
   "outputDirectory": "CarRental/dist",
   "installCommand": "npm --prefix CarRental install",
   "routes": [
-    { "handle": "filesystem" },
+    {
+      "handle": "filesystem"
+    },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/html/landing.html"
     }
   ]
 }
