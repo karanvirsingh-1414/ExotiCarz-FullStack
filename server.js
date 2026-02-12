@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Sequelize, DataTypes } = require('sequelize');
 require('dotenv').config();
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,11 @@ app.use(express.static('html')); // Serve static files from 'html' folder
 app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 app.use('/images', express.static('images'));
+
+// Serve landing page at root
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html', 'landing.html'));
+});
 
 // -------------------------------------------------------------------------
 // DATABASE CONNECTION (SEQUELIZE)
