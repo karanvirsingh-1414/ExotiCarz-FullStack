@@ -494,7 +494,7 @@
             document.querySelector('.user-avatar').src = `https://ui-avatars.com/api/?name=${currentUser.fullName || 'User'}&background=D4AF37&color=000`;
 
             try {
-                const response = await fetch(`http://localhost:3000/my-bookings?email=${currentUser.email}`);
+                const response = await fetch(`/my-bookings?email=${currentUser.email}`);
                 const data = await response.json();
 
                 if (data.success) {
