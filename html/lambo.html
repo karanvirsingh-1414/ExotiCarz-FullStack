@@ -113,32 +113,43 @@
         }
     </style>
     <style>
+        /* ... previous styles ... */
         body {
             display: none;
+            /* Hide by default for Auth Guard */
         }
-
-        /* ... */
     </style>
     <script>
         // AUTH GUARD (Run immediately)
-        const userStr = localStorage.getItem('currentUser');
-        let isValidUser = false;
-        if (userStr && userStr !== 'null' && userStr !== 'undefined') {
-            try {
-                const user = JSON.parse(userStr);
-                if (user && user.email) isValidUser = true;
-            } catch (e) {
-                console.error("Auth Error", e);
-            }
-        }
+        (function () {
+            const userStr = localStorage.getItem('currentUser');
+            let isValidUser = false;
 
-        if (!isValidUser) {
-            window.location.href = "login_2.html?auth=required";
-        } else {
-            document.addEventListener('DOMContentLoaded', () => {
-                document.body.style.display = 'block';
-            });
-        }
+            if (userStr) {
+                try {
+                    const user = JSON.parse(userStr);
+                    // Check for essential fields
+                    if (user && user.email && user.id) {
+                        isValidUser = true;
+                    }
+                } catch (e) {
+                    console.error("Auth Guard Error: Invalid JSON", e);
+                    localStorage.removeItem('currentUser'); // Auto-clean invalid data
+                }
+            }
+
+            if (!isValidUser) {
+                console.warn("Auth Guard: Access Denied. Redirecting...");
+                // REMOVED INVALID FUNCTION window.location.stop()
+                window.stop(); // Correct standard stop
+                window.location.href = "login_2.html?auth=required";
+            } else {
+                console.log("Auth Guard: Access Granted.");
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.body.style.display = 'block';
+                });
+            }
+        })();
     </script>
 </head>
 

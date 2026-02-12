@@ -30,92 +30,199 @@
 
 
         .dashboard-container {
-    padding-top: 100px;
-    }
+            padding-top: 100px;
+        }
 
-    .glass-panel {
-    background: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    }
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+        }
 
-    .active-ride-card {
-    background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
-    border: 1px solid var(--gold);
-    position: relative;
-    overflow: hidden;
-    }
+        .active-ride-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
+            border: 1px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .active-ride-card::before {
-    content: '';
-    position: absolute;
+        .active-ride-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gold);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .history-table {
+            --bs-table-bg: transparent;
+            --bs-table-color: white;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .history-table th {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--gold);
+            font-weight: normal;
+            letter-spacing: 1px;
+            border-bottom-width: 1px;
+        }
+
+        .history-table td {
+            font-family: 'Outfit', sans-serif;
+            vertical-align: middle;
+            color: #ccc;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            object-fit: cover;
+        }
+
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-active {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.3);
+        }
+
+        .status-completed {
+            background: rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+
+
+        /* ... */
+    </style>
+    /* ... existing styles ... */
+
+    /* PROFILE MODAL */
+    #profile-modal {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px;
-    background: var(--gold);
-    box-shadow: 0 0 20px var(--gold);
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     }
 
-    .stat-card {
-    transition: all 0.3s ease;
+    #profile-modal.show {
+    display: flex;
+    opacity: 1;
     }
 
-    .stat-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .history-table {
-    --bs-table-bg: transparent;
-    --bs-table-color: white;
-    border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .history-table th {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--gold);
-    font-weight: normal;
-    letter-spacing: 1px;
-    border-bottom-width: 1px;
-    }
-
-    .history-table td {
-    font-family: 'Outfit', sans-serif;
-    vertical-align: middle;
-    color: #ccc;
-    }
-
-    .user-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    object-fit: cover;
-    }
-
-    .status-badge {
-    padding: 5px 12px;
+    .profile-content {
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid var(--gold);
     border-radius: 20px;
-    font-size: 0.75rem;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    }
+
+    #profile-modal.show .profile-content {
+    transform: scale(1);
+    }
+
+    .profile-avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    margin-bottom: 20px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    }
+
+    .stat-item {
+    text-align: center;
+    flex: 1;
+    }
+
+    .stat-item h3 {
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 5px;
+    }
+
+    .stat-item p {
+    color: #aaa;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin: 0;
     }
 
-    .status-active {
-    background: rgba(46, 204, 113, 0.2);
-    color: #2ecc71;
-    border: 1px solid rgba(46, 204, 113, 0.3);
+    .car-list-tag {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid rgba(212, 175, 55, 0.3);
     }
 
-    .status-completed {
-    background: rgba(255, 255, 255, 0.1);
+    .close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
     color: #aaa;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
     }
-    
 
-        /* ... */
+    .close-modal-btn:hover {
+    color: white;
+    }
     </style>
     <script>
         // AUTH GUARD (Run immediately)
@@ -140,7 +247,7 @@
         }
     </script>
 
-    
+
 </head>
 
 <body>
@@ -158,7 +265,9 @@
                     <p class="text-warning font-outfit mb-0 fw-bold">Karanvir Singh</p>
                 </div>
                 <img src="https://ui-avatars.com/api/?name=Karanvir+Singh&background=D4AF37&color=000"
-                    class="user-avatar" alt="User">
+                    class="user-avatar" alt="User" onclick="openProfileModal()"
+                    style="cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'">
                 <button onclick="logout()" class="btn btn-outline-secondary btn-sm rounded-pill px-3 ms-2"><i
                         class="fa-solid fa-right-from-bracket"></i></button>
             </div>
@@ -322,7 +431,42 @@
         </div>
     </div>
 
-  
+
+    <!-- PROFILE MODAL -->
+    <div id="profile-modal">
+        <div class="profile-content">
+            <button class="close-modal-btn" onclick="closeProfileModal()">&times;</button>
+
+            <img src="" alt="User Avatar" class="profile-avatar-large" id="modal-avatar">
+
+            <h2 class="text-white font-orbitron mb-1" id="modal-name">User Name</h2>
+            <p class="text-white-50 font-outfit mb-4" id="modal-email">user@example.com</p>
+
+            <div class="stat-row">
+                <div class="stat-item">
+                    <h3 id="modal-total-cars">0</h3>
+                    <p>Cars Rented</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="modal-total-spent">$0</h3>
+                    <p>Total Spent</p>
+                </div>
+            </div>
+
+            <div class="text-start mt-4">
+                <h6 class="text-white font-orbitron small mb-3">GARAGE COLLECTION</h6>
+                <div id="modal-car-list">
+                    <!-- Tags injected here -->
+                    <span class="text-white-50 small">No cars rented yet.</span>
+                </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-top border-secondary">
+                <button onclick="logout()" class="btn btn-outline-danger w-100 rounded-pill">Logout</button>
+            </div>
+        </div>
+    </div>
+
     <!-- BOOTSTRAP - JAVASCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -351,49 +495,50 @@
                 const data = await response.json();
 
                 if (data.success) {
+                    // STORE FOR MODAL
+                    window.userBookings = data.bookings;
+
                     const tbody = document.querySelector('.history-table tbody');
                     tbody.innerHTML = ''; // Clear default rows
 
                     if (data.bookings.length === 0) {
                         tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4">No bookings found. Time to ride!</td></tr>';
-                    }
+                    } else {
+                        data.bookings.forEach(booking => {
+                            const row = document.createElement('tr');
 
-                    data.bookings.forEach(booking => {
-                        const row = document.createElement('tr');
+                            // Status Badge Logic
+                            let badgeClass = 'status-completed';
+                            if (booking.status === 'Active') badgeClass = 'status-active';
 
-                        // Status Badge Logic
-                        let badgeClass = 'status-completed';
-                        if (booking.status === 'Active') badgeClass = 'status-active';
-
-                        row.innerHTML = `
-                            <td>
-                                <div class="d-flex align-items-center gap-3">
-                                    <img src="${booking.carImage}" width="50" class="rounded-2" alt="${booking.carName}">
-                                    <div>
-                                        <span class="d-block text-white fw-bold font-outfit">${booking.carName}</span>
-                                        <span class="small text-white-50">Exoticarz Fleet</span>
+                            row.innerHTML = `
+                                <td>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="${booking.carImage}" width="50" class="rounded-2" alt="${booking.carName}">
+                                        <div>
+                                            <span class="d-block text-white fw-bold font-outfit">${booking.carName}</span>
+                                            <span class="small text-white-50">Exoticarz Fleet</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>${booking.startDate}</td>
-                            <td>${booking.duration} Days</td>
-                            <td><span class="status-badge ${badgeClass}">${booking.status}</span></td>
-                            <td class="text-warning font-outfit">$${booking.totalPrice.toLocaleString()}</td>
-                        `;
-                        tbody.appendChild(row);
+                                </td>
+                                <td>${booking.startDate}</td>
+                                <td>${booking.duration} Days</td>
+                                <td><span class="status-badge ${badgeClass}">${booking.status}</span></td>
+                                <td class="text-warning font-outfit">$${booking.totalPrice.toLocaleString()}</td>
+                            `;
+                            tbody.appendChild(row);
 
-                        // If active, update the "Active Ride" card too?
-                        // For simplicity, let's just use the latest active booking
-                        if (booking.status === 'Active') {
-                            // Update Active Ride Card
-                            document.querySelector('.active-ride-card h3').textContent = booking.carName;
-                            document.querySelector('.active-ride-card img').src = booking.carImage;
-                            document.querySelector('.active-ride-card .text-warning.fw-bold').textContent = "In Progress";
-                        }
-                    });
+                            // If active, update the "Active Ride" card
+                            if (booking.status === 'Active') {
+                                document.querySelector('.active-ride-card h3').textContent = booking.carName;
+                                document.querySelector('.active-ride-card img').src = booking.carImage;
+                                document.querySelector('.active-ride-card .text-warning.fw-bold').textContent = "In Progress";
+                            }
+                        });
 
-                    // Update Count
-                    document.querySelector('.glass-panel .fa-receipt').nextElementSibling.textContent = data.bookings.length;
+                        // Update Count
+                        document.querySelector('.glass-panel .fa-receipt').nextElementSibling.textContent = data.bookings.length;
+                    }
 
                 }
             } catch (error) {
@@ -401,10 +546,71 @@
             }
         }
 
+        // --- PROFILE MODAL LOGIC ---
+        function openProfileModal() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const bookings = window.userBookings || [];
+
+            if (!currentUser) return;
+
+            // 1. Populate Data
+            document.getElementById('modal-name').textContent = currentUser.fullName || "Valued Member";
+            document.getElementById('modal-email').textContent = currentUser.email;
+            document.getElementById('modal-avatar').src = `https://ui-avatars.com/api/?name=${currentUser.fullName || 'User'}&background=D4AF37&color=000`;
+
+            // 2. Calculate Stats
+            const totalCars = bookings.length;
+            const totalSpent = bookings.reduce((sum, b) => sum + parseInt(b.totalPrice), 0);
+
+            // Unique Cars
+            const uniqueCars = [...new Set(bookings.map(b => b.carName))];
+
+            document.getElementById('modal-total-cars').textContent = totalCars;
+            document.getElementById('modal-total-spent').textContent = "$" + totalSpent.toLocaleString();
+
+            const carListContainer = document.getElementById('modal-car-list');
+            carListContainer.innerHTML = '';
+
+            if (uniqueCars.length > 0) {
+                uniqueCars.forEach(car => {
+                    const tag = document.createElement('span');
+                    tag.className = 'car-list-tag';
+                    tag.textContent = car;
+                    carListContainer.appendChild(tag);
+                });
+            } else {
+                carListContainer.innerHTML = '<span class="text-white-50 small">No cars rented yet.</span>';
+            }
+
+            // 3. Show Modal
+            const modal = document.getElementById('profile-modal');
+            modal.style.display = 'flex';
+            // Slight delay for animation
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }
+
+        function closeProfileModal() {
+            const modal = document.getElementById('profile-modal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // 300ms matches CSS transition
+        }
+
+        // Close on backdrop click
+        document.getElementById('profile-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'profile-modal') {
+                closeProfileModal();
+            }
+        });
+
         function logout() {
             if (confirm("Are you sure you want to logout?")) {
                 localStorage.removeItem('currentUser');
-                window.location.href = 'login_2.html';
+                localStorage.clear(); // Nuke everything to be safe
+                window.location.replace('login_2.html'); // Replace history to prevent back-button
             }
         }
 
